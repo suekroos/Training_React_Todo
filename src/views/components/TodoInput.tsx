@@ -1,23 +1,23 @@
-import React, { ChangeEvent, KeyboardEvent, useCallback, } from "react";
+import React, { memo, ChangeEvent, KeyboardEvent, useCallback, } from "react";
 
 type Props = {
     text: string
     setText: React.Dispatch<React.SetStateAction<string>>
     typing: boolean
     setTyping: React.Dispatch<React.SetStateAction<boolean>>
-    // onAdd: (text: string) => void
+    onAdd: (text: string) => void
 }
 
-export const TodoInput = React.memo((props:Props) => {
-    //あとでonAddを付け加える
-    const { text, setText, typing, setTyping } = props
+export const TodoInput = memo((props:Props) => {
+ 
+    const { text, setText, typing, setTyping, onAdd } = props
 
     const handChange = useCallback((e: ChangeEvent<HTMLInputElement>) => setText(e.target.value), [setText])
 
     const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
         if(!text) return
         if(e.key !== 'Enter' || typing) return
-        // onAdd(text)
+        onAdd(text)
         setText('');
     }
     
