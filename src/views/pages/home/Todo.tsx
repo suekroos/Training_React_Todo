@@ -19,11 +19,14 @@ export const Todo = () =>{
     )
 
     return(
-        <div className="flex justify-center columns-3">
-            <div className="flex items-center m-24">
+        <div className="flex justify-center items-center flex-col">
+            <div className="m-20">
                 <TodoInput onAdd={onAdd} text={text} setText={setText} typing={typing} setTyping={setTyping} />
-                <TodoAdd items={items} setItems={setItems} itemsDone={itemsDone} setItemsDone={setItemsDone} />
             </div>
+            <div>
+                <TodoAdd items={items} setItems={setItems} itemsDone={itemsDone} setItemsDone={setItemsDone} />
+            </div>                        
+            
         </div>
     )
 }

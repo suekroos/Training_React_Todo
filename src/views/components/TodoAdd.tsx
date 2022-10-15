@@ -46,16 +46,16 @@ export const TodoAdd = memo((props:Props) => {
     }
 
     return(
-        <div className=''>
-            <div className=''>
-                <div className=''>
+        <div className='flex flex-col w-96'>
+            <div className='m-2'>
+                <div className='grid justify-items-end'>
                     {TodoDoneLength()}
                 </div>
                 {items.map((item) => (
                     <TodoItem key={item.key} item={item} onCheck={oncheckChange} />
                 ))}
             </div>
-            <div className=''>
+            <div className='flex justify-around'>
                 <button className='' onClick={onClickDelete} type="button">
                     完了済を削除
                 </button>
