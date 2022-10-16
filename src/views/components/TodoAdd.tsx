@@ -49,7 +49,7 @@ export const TodoAdd = memo((props:Props) => {
         <div className='flex flex-col w-96'>
             <div className='m-2'>
                 { items.length === 0 ?
-                    <div className='grid justify-items-end'>
+                    <div className='grid justify-items-center'>
                         {TodoDoneLength()}
                     </div>:
                     <div className='grid justify-items-end border-b-4 border-slate-700'>
