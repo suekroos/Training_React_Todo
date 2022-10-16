@@ -52,14 +52,15 @@ export const TodoAdd = memo((props:Props) => {
                     <div className='grid justify-items-end'>
                         {TodoDoneLength()}
                     </div>:
-                    <div className='grid justify-items-end border-b-4 border-slate-700 '>
+                    <div className='grid justify-items-end border-b-4 border-slate-700'>
                         {TodoDoneLength()}
                     </div>
                 }
-                
+                <div className='overflow-auto h-60'>
                 {items.map((item) => (
                     <TodoItem key={item.key} item={item} onCheck={oncheckChange} />
                 ))}
+                </div>
             </div>
             <div className='flex justify-around '>
                 <button className='p-2 text-white bg-green-700 rounded' onClick={onClickDelete} type="button">
