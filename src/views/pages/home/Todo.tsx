@@ -2,6 +2,7 @@ import { useCallback, useState } from "react"
 import { Item } from '../../types/item';
 import { TodoInput } from "../../components/TodoInput"
 import { TodoAdd } from "../../components/TodoAdd";
+import { TodoDones } from "../../components/TodoDones";
 
 const getKey = () => Math.random().toString(32).substring(2); 
 
@@ -20,13 +21,13 @@ export const Todo = () =>{
 
     return(
         <div className="flex justify-center items-center flex-col">
-            <div className="m-20">
+            <div className="m-10">
                 <TodoInput onAdd={onAdd} text={text} setText={setText} typing={typing} setTyping={setTyping} />
             </div>
-            <div>
+            <div className="flex justify-around">
                 <TodoAdd items={items} setItems={setItems} itemsDone={itemsDone} setItemsDone={setItemsDone} />
+                <TodoDones itemsDone={itemsDone} />
             </div>                        
-            
         </div>
     )
 }
