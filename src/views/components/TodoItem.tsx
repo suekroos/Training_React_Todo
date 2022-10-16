@@ -11,7 +11,7 @@ export const TodoItem = memo((props:Props) =>{
     const handleChange = () => onCheck(item)
     return(
         <>
-            <div className="p-2 bg-blue-200 left-0">
+            <div className="p-2 bg-blue-200 left-0 border-b-2 border-dashed border-slate-700">
                 <label>
                     {item.done ? 
                     <span className=" text-rose-800">{item.text}</span> : 

@@ -10,7 +10,7 @@ type Props = {
 }
 
 export const TodoAdd = memo((props:Props) => {
-    const{ items, setItems, itemsDone, setItemsDone } = props
+    const{items, setItems, itemsDone, setItemsDone } = props
 
     const oncheckChange = useCallback(
         (checkedItem: Item) => {
@@ -48,18 +48,24 @@ export const TodoAdd = memo((props:Props) => {
     return(
         <div className='flex flex-col w-96'>
             <div className='m-2'>
-                <div className='grid justify-items-end'>
-                    {TodoDoneLength()}
-                </div>
+                { items.length === 0 ?
+                    <div className='grid justify-items-end'>
+                        {TodoDoneLength()}
+                    </div>:
+                    <div className='grid justify-items-end border-b-4 border-slate-700 '>
+                        {TodoDoneLength()}
+                    </div>
+                }
+                
                 {items.map((item) => (
                     <TodoItem key={item.key} item={item} onCheck={oncheckChange} />
                 ))}
             </div>
-            <div className='flex justify-around'>
-                <button className='' onClick={onClickDelete} type="button">
+            <div className='flex justify-around '>
+                <button className='p-2 text-white bg-green-700 rounded' onClick={onClickDelete} type="button">
                     完了済を削除
                 </button>
-                <button className='' onClick={onClickAllClear} type="button">
+                <button className='p-2 text-white bg-slate-500 rounded' onClick={onClickAllClear} type="button">
                     やることをクリア
                 </button>
             </div>
